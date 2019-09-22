@@ -6,4 +6,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <!--https://github.com/Asymmetrik/ngx-leaflet
+  npm install leaflet
+  npm install @asymmetrik/ngx-leaflet
+  npm install --save-dev @types/leaflet
+  -->
+  <!--Import the Leaflet Stylesheet Angular -> https://github.com/Asymmetrik/ngx-leaflet#adding-styles-in-angular-cli  -->
+  <!--Import Code Dependencies and Module https://github.com/Asymmetrik/ngx-leaflet#typescript-angulario-module-import -->
+  <!-- Create and Configure a Map https://github.com/Asymmetrik/ngx-leaflet#create-and-configure-a-map-->
+  <!-- Changes to [leafletOptions] are ignored after they are initially set. This is because these options are passed into the map constructor, so they can't be changed anyways. So, make sure the object exists before the map is created. You'll want to create the object in ngOnInit or hide the map DOM element with *ngIf until you can create the options object.-->
+  <div
+    *ngIf="options"
+    style="height: 500px; width: 100%;"
+    leaflet
+    [leafletOptions]="options"
+    [leafletCenter]="center"
+  ></div>
+</ion-content>
