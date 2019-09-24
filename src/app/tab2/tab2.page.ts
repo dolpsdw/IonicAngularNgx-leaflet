@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from "@angular/core";
-import { tileLayer, latLng, LatLng, polyline } from "leaflet";
+import { tileLayer, latLng, LatLng, polyline, Map } from "leaflet";
 declare let L;
 import { AntPath, antPath } from "leaflet-ant-path/dist/leaflet-ant-path.es6";
 
@@ -27,6 +27,11 @@ export class Tab2Page {
       zoom: 15,
       center: this.center
     };
+    console.log("init ready"); //this.layers = [this.test];
+    //this.cdRef.markForCheck();
+  }
+  onMapReady(map: Map) {
+    // Do stuff with map
     this.test = antPath([this.center, [41.648346, -4.729851]], {
       use: L.polyline,
       delay: 400,
@@ -35,8 +40,8 @@ export class Tab2Page {
       color: "#0000FF",
       pulseColor: "#FFFFFF"
     });
-    this.layers = [this.test];
-    //this.cdRef.markForCheck();
+    console.log("mapready");
+    map.addLayer(this.test);
   }
   /* https://codehandbook.org/use-leaflet-in-angular/ -> For leaflet.js Plain Injection and L usage
   https://asymmetrik.com/ngx-leaflet-tutorial-angular-cli/

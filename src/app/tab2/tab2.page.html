@@ -22,6 +22,6 @@
     leaflet
     [leafletOptions]="options"
     [leafletCenter]="center"
-    [leafletLayer]="layers"
+    (leafletMapReady)="onMapReady($event)"
   ></div>
 </ion-content>
